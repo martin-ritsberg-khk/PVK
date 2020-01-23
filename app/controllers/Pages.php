@@ -5,6 +5,8 @@ class Pages extends Controller
 {
     public function __construct()
     {
+//        Andmebaasi ühenduse testimiseks
+//        $db = new Database();
     }
     public function edit($id){
         $this -> view('pages/edit');

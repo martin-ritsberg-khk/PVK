@@ -7,6 +7,7 @@ class Pages extends Controller
     {
 //        Andmebaasi ühenduse testimiseks
 //        $db = new Database();
+        $this->pagesModel = $this->model('Page');
     }
     public function edit($id){
         $this -> view('pages/edit');
@@ -14,5 +15,12 @@ class Pages extends Controller
     public function index(){
         $data = ['title'=>'Pages has been loaded'];
         $this -> view('pages/index', $data);
+    }
+    public function adduser(){
+        $this->pagesModel->addUser();
+        $this->index();
+    }
+    public function getuser(){
+        
     }
 }

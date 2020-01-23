@@ -56,4 +56,9 @@ class Database
     public function excecute(){
         $this->stmt->execute();
     }
+
+    public function get_all($fetchType=PDO::FETCH_OBJ){
+        $this->execute();
+        return $this->stmt->fetchAll($fetchType);
+    }
 }

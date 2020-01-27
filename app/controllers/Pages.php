@@ -3,24 +3,35 @@
 
 class Pages extends Controller
 {
+    /**
+     * Page constructor.
+     */
     public function __construct()
     {
-//        Andmebaasi ühenduse testimiseks
-//        $db = new Database();
         $this->pagesModel = $this->model('Page');
     }
-    public function edit($id){
-        $this -> view('pages/edit');
+
+    public function test(){
+        $users = $this->pagesModel->getUsers();
+        print_r($users);
     }
-    public function index(){
-        $data = ['title'=>'Pages has been loaded'];
-        $this -> view('pages/index', $data);
+
+    public function test2(){
+        $users = $this->pagesModel->getOneUser(2);
+        print_r($users);
     }
-    public function adduser(){
-        $this->pagesModel->addUser();
-        $this->index();
+
+    public function test3(){
+        $users = $this->pagesModel->usersCount();
+        print_r($users);
     }
-    public function getuser(){
-        
+
+    public function edit(){
+        $this->view('pages/edit');
+    }
+
+    public function index() {
+        $data = array('title' => 'Welcome');
+        $this->view('pages/index', $data);
     }
 }

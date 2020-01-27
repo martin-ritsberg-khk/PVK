@@ -53,12 +53,21 @@ class Database
         $this->stmt->bindValue($param, $value, $type);
     }
 
-    public function excecute(){
+    public function execute(){
         $this->stmt->execute();
     }
 
-    public function get_all($fetchType=PDO::FETCH_OBJ){
+    public function getAll($fetchType=PDO::FETCH_OBJ){
         $this->execute();
         return $this->stmt->fetchAll($fetchType);
+    }
+
+    public function getOne($fetchType=PDO::FETCH_OBJ){
+        $this->execute();
+        return $this->stmt->fetch($fetchType);
+    }
+
+    public function rowCount(){
+        return $this->stmt->rowCount();
     }
 }
